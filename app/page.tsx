@@ -87,8 +87,8 @@ export default function Page() {
 
     return (
         <>
-            <div className="h-screen w-screen flex flex-row justify-center bg-[#181818] overflow-y-scroll overflow-x-hidden">
-                <div className="flex flex-col items-center pt-20 ">
+            <div className=" w-full  flex flex-row justify-center bg-[#181818] overflow-x-hidden">
+                <div className="flex flex-col items-center pt-20">
                     <h3 className={`font-bold lg:text-3xl text-neutral-600 text-2xl`}>Let me say something about you</h3>
                     <NameInput
                         Name={(YourName: string) => setName(YourName)}
