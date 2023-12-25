@@ -18,26 +18,15 @@ export default function AgeDisplay({ gender }: { gender: string }) {
     };
 
     return (
-        <div
-            className={`
-                flex 
-                mt-8
-                justify-center 
-                items-center 
-                lg:h-fit 
-                ${genderColor}
-                text-[1.1rem] 
-                bg-[#222222] 
-                w-1/2 
-                lg:w-[32rem] 
-                h-fit                
-                text-center 
-                rounded-lg  
-                py-2 
-                px-5
-            `}
-        >
-            From your name you could be a {gender}.
-        </div>
+         <div className={`flex flex-col justify-center mt-4`}>
+             <h2 className={`font-bold text-[1rem] lg:text-[1.25rem] text-[#D1D1D1] flex justify-center `}>
+                Your Gender
+             </h2>
+             <div
+                 className={`flex justify-center ${genderColor} text-[1.1rem] bg-[#222222] lg:w-[32rem] text-center rounded-lg py-2 px-5`}
+             >
+                 From your name you could be a {gender}.
+             </div>
+         </div>
     );
 }

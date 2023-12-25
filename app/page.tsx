@@ -11,6 +11,8 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from '@vercel/analytics/react';
 import{Country, AgeData, FactData, GenderData} from "@/app/type/types";
 import countryList from "country-list";
+import {number} from "prop-types";
+
 export default function Page() {
     const [name, setName] = useState("");
     const [fact, setFact] = useState("");
@@ -26,6 +28,7 @@ export default function Page() {
         }
         return countryList.getName(countryCode.toUpperCase()) || "Unknown";
     };
+
 
     const fetchFact = async () => {
         try {
@@ -84,9 +87,9 @@ export default function Page() {
 
     return (
         <>
-            <div className="h-screen w-screen flex flex-row justify-center bg-[#181818] ">
-                <div className="flex flex-col items-center pt-20">
-                    <h3 className={` font-bold text-3xl text-neutral-600`}>Let me say something about you</h3>
+            <div className="h-screen w-screen flex flex-row justify-center bg-[#181818] overflow-y-scroll overflow-x-hidden">
+                <div className="flex flex-col items-center pt-20 ">
+                    <h3 className={`font-bold lg:text-3xl text-neutral-600 text-2xl`}>Let me say something about you</h3>
                     <NameInput
                         Name={(YourName: string) => setName(YourName)}
                         handleNameSubmit={() => handleNameSubmit(name)}
