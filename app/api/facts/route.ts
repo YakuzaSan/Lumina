@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 export const revalidate = 3
 export async function GET() {
-    export async function GET() {
     const NAME_ANIME_GAME_FACTS: Array<string> = [
         `
 import { NextResponse } from 'next/server';
@@ -47,6 +46,11 @@ export function middleware(req) {
 }
         `,
     ];
+
+    let randomFact = NAME_ANIME_GAME_FACTS[Math.floor(Math.random() * NAME_ANIME_GAME_FACTS.length)];
+
+    return NextResponse.json({ fact: randomFact });
+}
 
     let randomFact = NAME_ANIME_GAME_FACTS[Math.floor(Math.random() * NAME_ANIME_GAME_FACTS.length)];
 
