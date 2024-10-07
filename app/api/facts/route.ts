@@ -3,6 +3,8 @@ export const revalidate = 0
 export async function GET() {
     const NAME_ANIME_GAME_FACTS: Array<string> = [
          "WHYYYYYYYYYYYYYYYYYYYY",
+        "OZAN DU KLEINER BASTARD",
+         "nzhdeh",
 
     ];
     let randomFact = NAME_ANIME_GAME_FACTS[Math.floor(Math.random() * NAME_ANIME_GAME_FACTS.length + 1)];
