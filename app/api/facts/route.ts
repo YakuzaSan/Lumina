@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
-export const revalidate = 3
+export const revalidate = 0
 export async function GET() {
     const NAME_ANIME_GAME_FACTS: Array<string> = [
-        `
+         `
 import { NextResponse } from 'next/server';
 
 const rateLimit = {
@@ -42,14 +42,10 @@ export function middleware(req) {
     return new NextResponse('Rate limit exceeded', { status: 429 });
   }
 
-  
+  return NextResponse.next();
 }
         `,
     ];
-
-    return NextResponse.next();
-    
-    let randomFact = NAME_ANIME_GAME_FACTS[Math.floor(Math.random() * NAME_ANIME_GAME_FACTS.length)];
-
+    let randomFact = NAME_ANIME_GAME_FACTS[Math.floor(Math.random() * NAME_ANIME_GAME_FACTS.length + 1)];
     return NextResponse.json({ fact: randomFact });
 }
