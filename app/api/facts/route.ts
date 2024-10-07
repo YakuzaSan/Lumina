@@ -42,16 +42,13 @@ export function middleware(req) {
     return new NextResponse('Rate limit exceeded', { status: 429 });
   }
 
-  return NextResponse.next();
+  
 }
         `,
     ];
 
-    let randomFact = NAME_ANIME_GAME_FACTS[Math.floor(Math.random() * NAME_ANIME_GAME_FACTS.length)];
-
-    return NextResponse.json({ fact: randomFact });
-}
-
+    return NextResponse.next();
+    
     let randomFact = NAME_ANIME_GAME_FACTS[Math.floor(Math.random() * NAME_ANIME_GAME_FACTS.length)];
 
     return NextResponse.json({ fact: randomFact });
