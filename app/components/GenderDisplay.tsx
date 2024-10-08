@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 export default function AgeDisplay({ gender }: { gender: string }) {
     const [genderColor, setGenderColor] = useState("");
-
+    //TODO; MORE INFORMATION (gender probability, count)
     useEffect(() => {
         getGenderColor(); // Invoke the function to set the initial color
     }, [gender]); // Add gender to the dependency array
