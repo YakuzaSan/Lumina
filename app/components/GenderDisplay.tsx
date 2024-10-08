@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-export default function AgeDisplay({ gender }: { gender: string }) {
+export default function AgeDisplay({ gender }: { gender: string }) { //DAS SOLL GenderDisplay sein WTF XD
     const [genderColor, setGenderColor] = useState("");
     //TODO; MORE INFORMATION (gender probability, count)
     useEffect(() => {
