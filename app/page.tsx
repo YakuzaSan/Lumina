@@ -9,9 +9,9 @@ import DisplayAge from "@/app/components/DisplayAge";
 import GenderDisplay from "@/app/components/GenderDisplay";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from '@vercel/analytics/react';
-import{Country, AgeData, FactData, GenderData} from "@/app/type/types";
+import {Country, AgeData, FactData, GenderData, Weather} from "@/app/type/types";
 import countryList from "country-list";
-import {number} from "prop-types";
+
 
 export default function Page() {
     const [name, setName] = useState("");
@@ -21,6 +21,7 @@ export default function Page() {
     const [loadingCountries, setLoadingCountries] = useState<"waiting" | "loading" | "loaded">("waiting");
     const [gender, setGender] = useState<string> ("");
     const [age, setAge] = useState<number>(0);
+    const [weather, setWeather ] = useState<Array<Weather>>([]);
 
     const countryCodeToName = (countryCode: string) => {
         if(countryCode === 'sq'){
@@ -28,7 +29,6 @@ export default function Page() {
         }
         return countryList.getName(countryCode.toUpperCase()) || "Unknown";
     };
-
 
     const fetchFact = async () => {
         try {
@@ -39,6 +39,14 @@ export default function Page() {
             console.error("Error fetching facts:", error);
         }
     };
+
+    const fetchWeather = async () => {
+        const res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=50.9333&lon=6.95&exclude={part}&appid=b5b9b1282df527a9dd0201cb339ec6af`);
+        const data = res.data;
+        setWeather(data.weather);
+
+
+    }
     const transformPercentage = (probability: number) => {
         let percentage = Math.round(probability * 100).toString();
         return percentage;
@@ -130,6 +138,10 @@ export default function Page() {
                             <FactDisplay fact={fact} />
                         </>
                     )}
+
+                    <div className={``}>
+
+                    </div>
                 </div>
             </div>
             <SpeedInsights/>

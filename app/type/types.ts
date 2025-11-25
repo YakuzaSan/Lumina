@@ -16,3 +16,12 @@ export interface FactData {
 export interface GenderData{
     gender: string;
 }
+
+export interface Weather{
+    weather?: Weather[];
+    main_temp: number;
+    wind_speed: number;
+    weather_0_description: string;
+    sys_name:  string;
+
+}
