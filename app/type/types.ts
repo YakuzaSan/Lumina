@@ -1,27 +1,34 @@
 export interface Country {
-    country?: Country[];
-    country_id: string;
-    probability: number;
-    country_full: string;
+    code: string;              // ISO2, lowercase (for flagcdn)
+    name: string;              // English country name
+    probability: number | null; // 0..1, null if the source gives only a ranking
 }
 
-export interface AgeData {
-    age: number;
+export interface NationResult {
+    source: "namsor" | "nationalize";
+    countries: Country[];
+    region: string | null;     // e.g. "Eastern Asia" (NamSor only)
+}
+
+export interface GenderResult {
+    gender: "male" | "female" | null;
+    probability: number | null;
+    source: "namsor" | "genderize";
+}
+
+export interface AgeResult {
+    age: number | null;
+    count: number;
+}
+
+export interface AnalyzeResult {
+    name: string;
+    nation: NationResult | null;
+    gender: GenderResult | null;
+    age: AgeResult | null;
+    warnings: string[];
 }
 
 export interface FactData {
     fact: string;
-}
-
-export interface GenderData{
-    gender: string;
-}
-
-export interface Weather{
-    weather?: Weather[];
-    main_temp: number;
-    wind_speed: number;
-    weather_0_description: string;
-    sys_name:  string;
-
 }
